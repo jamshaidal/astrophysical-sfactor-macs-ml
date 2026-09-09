@@ -41,7 +41,7 @@ def predict_s_factor(reaction, energy_mev):
     mu = row0["Reduced_Mass_mu"]
     s0_exp = row0["S0_Experimental_keV_b"]
     s0_err = row0["S0_Exp_Uncertainty"]
-    comp_nuc = row0["Compound_Nucleus"]
+    comp_nuc = reaction.split(")")[-1].strip()
     
     # Calculate physics quantities
     eta = 0.15748 * z1 * z2 * np.sqrt(mu / max(energy_mev, 1e-4))
@@ -55,8 +55,8 @@ def predict_s_factor(reaction, energy_mev):
 - **Reaction Channel:** `{reaction}` &rarr; Compound Nucleus `{comp_nuc}`
 - **Sommerfeld Parameter \(\eta\):** `{eta:.4f}`
 - **Coulomb Tunneling Probability \(\exp(-2\pi\eta)\):** `{gamow_factor:.3e}`
-- **Experimental Zero-Energy Benchmark \(S(0)\):** `{s0_exp:.2f} ± {s0_err:.2f} keV·b`
-- **Surrogate Predicted \(S(E)\) at {energy_mev:.2f} MeV:** **`{predicted_s:.2f} keV·b`**
+- **Experimental Zero-Energy Benchmark \(S(0)\):** `{s0_exp:.2f} +/- {s0_err:.2f} keV*b`
+- **Surrogate Predicted \(S(E)\) at {energy_mev:.2f} MeV:** **`{predicted_s:.2f} keV*b`**
 - **Estimated Cross Section \(\sigma(E)\):** **`{cross_section_nb:.3e} nb`**
 """
 
