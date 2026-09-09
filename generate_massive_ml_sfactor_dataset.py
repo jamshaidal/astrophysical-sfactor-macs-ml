@@ -15,7 +15,7 @@ import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
-BASE_DIR = r"c:\Users\Jamshaid\Desktop\problems"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_EXCEL = os.path.join(BASE_DIR, "ML_S_FACTOR_EXPANDED_RESEARCH_DATASET.xlsx")
 OUT_CSV = os.path.join(BASE_DIR, "ML_S_FACTOR_EXPANDED_RESEARCH_DATASET.csv")
 

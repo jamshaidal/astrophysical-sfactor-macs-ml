@@ -9,7 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-BASE_DIR = r"c:\Users\Jamshaid\Desktop\problems"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_IMG = os.path.join(BASE_DIR, "ML_S_Factor_Predictions_Publication.png")
 
 plt.rcParams.update({
@@ -30,7 +30,14 @@ plt.rcParams.update({
 })
 
 def plot_s_factor():
-    df = pd.read_excel(os.path.join(BASE_DIR, "ML_S_FACTOR_CLEAN_DATASET.xlsx"))
+    xlsx_path = os.path.join(BASE_DIR, "ML_S_FACTOR_CLEAN_DATASET.xlsx")
+    csv_path = os.path.join(BASE_DIR, "ML_S_FACTOR_CLEAN_DATASET.csv")
+    if os.path.exists(xlsx_path):
+        df = pd.read_excel(xlsx_path)
+    elif os.path.exists(csv_path):
+        df = pd.read_csv(csv_path)
+    else:
+        raise FileNotFoundError(f"Neither {xlsx_path} nor {csv_path} found.")
     
     exp_df = df[df["Source"] == "Experimental Measurement"]
     ml_poly = df[df["Source"] == "ML Polynomial Regression (Degree 2)"]
