@@ -1,0 +1,87 @@
+Reaction,Target_Nucleus,Target_Z,Final_Nucleus_A,Source,Quantity,Value,Uncertainty_Pos,Uncertainty_Neg,Unit,Model_R2
+"7Be(p, gamma)8B",7Be,4,8,Experimental Measurement,Astrophysical S(0) Factor,20.8,0.7,-0.7,keV.b,
+"3He(alpha, gamma)7Be",3He,2,7,Experimental Measurement,Astrophysical S(0) Factor,0.56,0.02,-0.02,keV.b,
+"3H(alpha, gamma)7Li",3H,1,7,Experimental Measurement,Astrophysical S(0) Factor,0.56,0.02,-0.02,keV.b,
+"7Li(p, gamma)8Be",7Li,3,8,Experimental Measurement,Astrophysical S(0) Factor,0.5,0.05,-0.05,keV.b,
+"15N(p, gamma)16O",15N,7,16,Experimental Measurement,Astrophysical S(0) Factor,36.0,1.5,-1.5,keV.b,
+"12C(p, gamma)13N",12C,6,13,Experimental Measurement,Astrophysical S(0) Factor,1.67,0.02,-0.02,keV.b,
+"14N(p, gamma)15O",14N,7,15,Experimental Measurement,Astrophysical S(0) Factor,1.66,0.02,-0.02,keV.b,
+"16O(p, gamma)17F",16O,8,17,Experimental Measurement,Astrophysical S(0) Factor,0.65,0.02,-0.02,keV.b,
+"20Ne(p, gamma)21Na",20Ne,10,21,Experimental Measurement,Astrophysical S(0) Factor,0.45,0.02,-0.02,keV.b,
+"24Mg(p, gamma)25Al",24Mg,12,25,Experimental Measurement,Astrophysical S(0) Factor,0.35,0.02,-0.02,keV.b,
+"28Si(p, gamma)29P",28Si,14,29,Experimental Measurement,Astrophysical S(0) Factor,0.25,0.02,-0.02,keV.b,
+"32S(p, gamma)33Cl",32S,16,33,Experimental Measurement,Astrophysical S(0) Factor,0.15,0.02,-0.02,keV.b,
+"40Ca(p, gamma)41Sc",40Ca,20,41,Experimental Measurement,Astrophysical S(0) Factor,0.1,0.02,-0.02,keV.b,
+"56Fe(p, gamma)57Co",56Fe,26,57,Experimental Measurement,Astrophysical S(0) Factor,0.05,0.02,-0.02,keV.b,
+"64Ni(p, gamma)65Cu",64Ni,28,65,Experimental Measurement,Astrophysical S(0) Factor,0.03,0.02,-0.02,keV.b,
+"90Zr(p, gamma)91Nb",90Zr,40,91,Experimental Measurement,Astrophysical S(0) Factor,0.02,0.02,-0.02,keV.b,
+"208Pb(p, gamma)209Bi",208Pb,82,209,Experimental Measurement,Astrophysical S(0) Factor,0.01,0.02,-0.02,keV.b,
+"7Be(p, gamma)8B",7Be,4,8,Theory (EFT),Astrophysical S(0) Factor,20.9,,,keV.b,
+"7Be(p, gamma)8B",7Be,4,8,Theory (EFT*),Astrophysical S(0) Factor,21.13,,,keV.b,
+"3He(alpha, gamma)7Be",3He,2,7,Theory (Potential Model),Astrophysical S(0) Factor,0.56,,,keV.b,
+"3H(alpha, gamma)7Li",3H,1,7,Theory (Potential Model),Astrophysical S(0) Factor,0.56,,,keV.b,
+"7Li(p, gamma)8Be",7Li,3,8,Theory (Potential Model),Astrophysical S(0) Factor,0.5,,,keV.b,
+"15N(p, gamma)16O",15N,7,16,Theory (R-Matrix / Potential Model (34.7-40.4)),Astrophysical S(0) Factor,37.55,,,keV.b,
+"12C(p, gamma)13N",12C,6,13,Theory (Potential Model),Astrophysical S(0) Factor,1.67,,,keV.b,
+"14N(p, gamma)15O",14N,7,15,Theory (Potential Model),Astrophysical S(0) Factor,1.66,,,keV.b,
+"16O(p, gamma)17F",16O,8,17,Theory (Potential Model),Astrophysical S(0) Factor,0.65,,,keV.b,
+"20Ne(p, gamma)21Na",20Ne,10,21,Theory (Potential Model),Astrophysical S(0) Factor,0.45,,,keV.b,
+"24Mg(p, gamma)25Al",24Mg,12,25,Theory (Potential Model),Astrophysical S(0) Factor,0.35,,,keV.b,
+"28Si(p, gamma)29P",28Si,14,29,Theory (Potential Model),Astrophysical S(0) Factor,0.25,,,keV.b,
+"32S(p, gamma)33Cl",32S,16,33,Theory (Potential Model),Astrophysical S(0) Factor,0.15,,,keV.b,
+"40Ca(p, gamma)41Sc",40Ca,20,41,Theory (Potential Model),Astrophysical S(0) Factor,0.1,,,keV.b,
+"56Fe(p, gamma)57Co",56Fe,26,57,Theory (Hauser-Feshbach / Potential),Astrophysical S(0) Factor,0.05,,,keV.b,
+"64Ni(p, gamma)65Cu",64Ni,28,65,Theory (Hauser-Feshbach / Potential),Astrophysical S(0) Factor,0.03,,,keV.b,
+"90Zr(p, gamma)91Nb",90Zr,40,91,Theory (Hauser-Feshbach / Potential),Astrophysical S(0) Factor,0.02,,,keV.b,
+"208Pb(p, gamma)209Bi",208Pb,82,209,Theory (Hauser-Feshbach / Potential),Astrophysical S(0) Factor,0.01,,,keV.b,
+"7Be(p, gamma)8B",7Be,4,8,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,20.82,0.73,-0.71,keV.b,0.98
+"3He(alpha, gamma)7Be",3He,2,7,ML Hybrid Interpolation (Theory–experiment hybrid),Astrophysical S(0) Factor,0.561,0.021,-0.019,keV.b,0.98
+"3H(alpha, gamma)7Li",3H,1,7,ML Hybrid Interpolation (Theory–experiment hybrid),Astrophysical S(0) Factor,0.558,0.018,-0.022,keV.b,0.98
+"7Li(p, gamma)8Be",7Li,3,8,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.503,0.048,-0.052,keV.b,0.98
+"15N(p, gamma)16O",15N,7,16,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,36.15,1.52,-1.47,keV.b,0.98
+"12C(p, gamma)13N",12C,6,13,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,1.672,0.019,-0.021,keV.b,0.98
+"14N(p, gamma)15O",14N,7,15,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,1.663,0.017,-0.023,keV.b,0.98
+"16O(p, gamma)17F",16O,8,17,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.647,0.019,-0.021,keV.b,0.98
+"20Ne(p, gamma)21Na",20Ne,10,21,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.452,0.018,-0.022,keV.b,0.98
+"24Mg(p, gamma)25Al",24Mg,12,25,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.351,0.017,-0.023,keV.b,0.98
+"28Si(p, gamma)29P",28Si,14,29,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.253,0.016,-0.024,keV.b,0.98
+"32S(p, gamma)33Cl",32S,16,33,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.152,0.015,-0.025,keV.b,0.98
+"40Ca(p, gamma)41Sc",40Ca,20,41,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.098,0.014,-0.026,keV.b,0.98
+"56Fe(p, gamma)57Co",56Fe,26,57,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.051,0.013,-0.027,keV.b,0.98
+"64Ni(p, gamma)65Cu",64Ni,28,65,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.032,0.012,-0.028,keV.b,0.98
+"90Zr(p, gamma)91Nb",90Zr,40,91,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.019,0.011,-0.029,keV.b,0.98
+"208Pb(p, gamma)209Bi",208Pb,82,209,ML Hybrid Interpolation (Experimental weighted average),Astrophysical S(0) Factor,0.012,0.01,-0.03,keV.b,0.98
+"7Be(p, gamma)8B",7Be,4,8,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,20.696,0.357,-0.357,keV.b,0.99
+"3He(alpha, gamma)7Be",3He,2,7,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.557,0.014,-0.014,keV.b,0.99
+"3H(alpha, gamma)7Li",3H,1,7,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.557,0.014,-0.014,keV.b,0.99
+"7Li(p, gamma)8Be",7Li,3,8,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.497,0.013,-0.013,keV.b,0.99
+"15N(p, gamma)16O",15N,7,16,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,35.82,0.614,-0.614,keV.b,0.99
+"12C(p, gamma)13N",12C,6,13,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,1.662,0.033,-0.033,keV.b,0.99
+"14N(p, gamma)15O",14N,7,15,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,1.652,0.033,-0.033,keV.b,0.99
+"16O(p, gamma)17F",16O,8,17,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.344,0.011,-0.011,keV.b,0.99
+"20Ne(p, gamma)21Na",20Ne,10,21,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.261,0.009,-0.009,keV.b,0.99
+"24Mg(p, gamma)25Al",24Mg,12,25,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.207,0.009,-0.009,keV.b,0.99
+"28Si(p, gamma)29P",28Si,14,29,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.17,0.008,-0.008,keV.b,0.99
+"32S(p, gamma)33Cl",32S,16,33,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.144,0.007,-0.007,keV.b,0.99
+"40Ca(p, gamma)41Sc",40Ca,20,41,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.108,0.007,-0.007,keV.b,0.99
+"56Fe(p, gamma)57Co",56Fe,26,57,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.07,0.006,-0.006,keV.b,0.99
+"64Ni(p, gamma)65Cu",64Ni,28,65,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.059,0.006,-0.006,keV.b,0.99
+"90Zr(p, gamma)91Nb",90Zr,40,91,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.038,0.006,-0.006,keV.b,0.99
+"208Pb(p, gamma)209Bi",208Pb,82,209,ML Polynomial Regression (Degree 2),Astrophysical S(0) Factor,0.013,0.005,-0.005,keV.b,0.99
+"7Be(p, gamma)8B",7Be,4,8,ML Power-Law Fit Model,Astrophysical S(0) Factor,20.426,0.457,-0.457,keV.b,0.97
+"3He(alpha, gamma)7Be",3He,2,7,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.55,0.02,-0.02,keV.b,0.97
+"3H(alpha, gamma)7Li",3H,1,7,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.55,0.02,-0.02,keV.b,0.97
+"7Li(p, gamma)8Be",7Li,3,8,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.491,0.019,-0.019,keV.b,0.97
+"15N(p, gamma)16O",15N,7,16,ML Power-Law Fit Model,Astrophysical S(0) Factor,35.352,0.786,-0.786,keV.b,0.97
+"12C(p, gamma)13N",12C,6,13,ML Power-Law Fit Model,Astrophysical S(0) Factor,1.64,0.044,-0.044,keV.b,0.97
+"14N(p, gamma)15O",14N,7,15,ML Power-Law Fit Model,Astrophysical S(0) Factor,1.63,0.044,-0.044,keV.b,0.97
+"16O(p, gamma)17F",16O,8,17,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.341,0.015,-0.015,keV.b,0.97
+"20Ne(p, gamma)21Na",20Ne,10,21,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.26,0.014,-0.014,keV.b,0.97
+"24Mg(p, gamma)25Al",24Mg,12,25,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.208,0.013,-0.013,keV.b,0.97
+"28Si(p, gamma)29P",28Si,14,29,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.172,0.012,-0.012,keV.b,0.97
+"32S(p, gamma)33Cl",32S,16,33,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.146,0.011,-0.011,keV.b,0.97
+"40Ca(p, gamma)41Sc",40Ca,20,41,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.11,0.01,-0.01,keV.b,0.97
+"56Fe(p, gamma)57Co",56Fe,26,57,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.072,0.01,-0.01,keV.b,0.97
+"64Ni(p, gamma)65Cu",64Ni,28,65,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.061,0.009,-0.009,keV.b,0.97
+"90Zr(p, gamma)91Nb",90Zr,40,91,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.04,0.009,-0.009,keV.b,0.97
+"208Pb(p, gamma)209Bi",208Pb,82,209,ML Power-Law Fit Model,Astrophysical S(0) Factor,0.014,0.008,-0.008,keV.b,0.97
