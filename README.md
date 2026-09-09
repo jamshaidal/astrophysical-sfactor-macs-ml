@@ -1,6 +1,10 @@
 # Astrophysical S-Factor & MACS Modeling with Scientific Machine Learning
 
-A Python implementation for non-linear extrapolation of low-energy radiative capture cross sections, astrophysical $S$-factors ($S(0)$), and thermalized Maxwellian-Averaged Cross Sections (MACS) across isotopic stellar burning networks.
+[![Technical Report](https://img.shields.io/badge/Preprint-Technical%20Report%20(PDF)-red?style=flat&logo=adobe-acrobat-reader&logoColor=white)](technical_report.pdf)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+> **Paper / Technical Report:** A publication-formatted manuscript documenting the mathematical derivations, ablation studies, and benchmarks is available here: **[technical_report.pdf](technical_report.pdf)**.
 
 ---
 
