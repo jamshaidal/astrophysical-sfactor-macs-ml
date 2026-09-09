@@ -1,133 +1,114 @@
-# Scientific Machine Learning for Astrophysical S-Factor & Maxwellian-Averaged Cross Sections (MACS)
+# Astrophysical S-Factor & MACS Modeling with Scientific Machine Learning
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Physics](https://img.shields.io/badge/Field-Nuclear%20Astrophysics-8A2BE2)](#)
-[![Dataset](https://img.shields.io/badge/Data-EXFOR%20%7C%20JINA%20REACLIB-blue)](#)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-An open-source scientific machine learning (SciML) framework for non-linear extrapolation of low-energy radiative capture cross sections, astrophysical $S$-factors ($S(0)$), and thermalized Maxwellian-Averaged Cross Sections (MACS) across isotopic stellar burning networks.
+A Python implementation for non-linear extrapolation of low-energy radiative capture cross sections, astrophysical $S$-factors ($S(0)$), and thermalized Maxwellian-Averaged Cross Sections (MACS) across isotopic stellar burning networks.
 
 ---
 
-## 🌌 Physical Problem & Motivation
+## Background & Physical Motivation
 
-In stellar nucleosynthesis (pp-chains, CNO cycles, helium burning, and advanced carbon/oxygen burning), nuclear reactions take place at center-of-mass energies far below the classical Coulomb barrier, within the narrow **Gamow energy window** ($E_0 \sim 10 - 300\text{ keV}$):
+In stellar nucleosynthesis, nuclear reactions take place at energies far below the classical Coulomb barrier, within the thermal Gamow window ($E_0 \sim 10\text{--}300\text{ keV}$):
 
-$$E_0 = \left( \frac{b k T}{2} \right)^{2/3} = 1.22 \left( Z_1^2 Z_2^2 \mu \, T_9^2 \right)^{1/3} \text{ keV}$$
+$$E_0 = 1.22 \left( Z_1^2 Z_2^2 \mu \, T_9^2 \right)^{1/3} \text{ keV}$$
 
-Because the Coulomb barrier penetration probability drops exponentially as $E \to 0$, measured laboratory cross sections fall to picobarn or femtobarn levels ($\sigma \sim 10^{-12} - 10^{-15}\text{ b}$), making direct laboratory accelerator beam measurements unfeasible due to natural cosmic-ray and environmental background noise.
+Because quantum tunneling through the Coulomb barrier drops exponentially as $E \to 0$, measured laboratory cross sections fall to picobarn or femtobarn levels ($\sigma \sim 10^{-12}\text{--}10^{-15}\text{ b}$), making direct laboratory measurements unfeasible due to background cosmic noise.
 
-### The Astrophysical $S$-Factor Formalism
+### Astrophysical $S$-Factor
 
-To isolate the non-nuclear Coulomb penetrability, the cross section $\sigma(E)$ is parameterized into the **Astrophysical $S$-factor**:
+To isolate the dominant Coulomb penetrability, the cross section $\sigma(E)$ is parameterized into the astrophysical $S$-factor:
 
 $$\sigma(E) = \frac{1}{E} S(E) \exp(-2\pi\eta)$$
 
-where $\eta$ is the dimensionless **Sommerfeld parameter**:
+where $\eta(E)$ is the dimensionless Sommerfeld parameter:
 
 $$\eta(E) = \frac{Z_1 Z_2 e^2}{\hbar v} = 0.15748 \, Z_1 Z_2 \sqrt{\frac{\mu \text{ (amu)}}{E \text{ (MeV)}}}$$
 
-Here:
-- $\mu = \frac{A_1 A_2}{A_1 + A_2}$ is the reduced mass of the colliding nuclei in amu.
-- $Z_1, Z_2$ are the atomic numbers of the projectile and target.
-- The factor $\exp(-2\pi\eta)$ represents the quantum mechanical transmission probability through the zero-angular-momentum ($s$-wave) barrier.
-
-For non-resonant radiative capture, $S(E)$ varies smoothly and is conventionally expanded around zero energy:
+For non-resonant radiative capture, $S(E)$ varies smoothly and is parameterized around zero energy:
 
 $$S(E) \approx S(0) + S'(0)E + \frac{1}{2}S''(0)E^2$$
 
 ### Maxwellian-Averaged Cross Section (MACS)
 
-To compute stellar reaction rates $N_A \langle \sigma v \rangle$ at stellar temperature $T$ (often parameterized as $T_9 = T / 10^9\text{ K}$), the cross section is integrated over a Maxwell-Boltzmann thermal velocity distribution:
-
-$$\langle \sigma v \rangle = \left(\frac{8}{\pi \mu (k T)^3}\right)^{1/2} \int_0^\infty \sigma(E) E \exp\left(-\frac{E}{k T}\right) dE$$
-
-Substituting the $S$-factor representation:
+To calculate reaction rates in stellar burning environments at temperature $T$, the cross section is integrated over a thermal Maxwell-Boltzmann distribution:
 
 $$\langle \sigma v \rangle = \left(\frac{8}{\pi \mu (k T)^3}\right)^{1/2} \int_0^\infty S(E) \exp\left( - \frac{E}{k T} - 2\pi\eta(E) \right) dE$$
 
 ---
 
-## 🔬 Experimental Reaction Catalog
+## Experimental Reaction Catalog
 
-This framework compiles experimental beam evaluations from the **IAEA EXFOR**, **NACRE II**, and **JINA REACLIB** databases across 17 benchmark radiative capture reactions:
+This repository compiles experimental evaluations from the IAEA EXFOR, NACRE II, and JINA REACLIB databases across 17 benchmark radiative capture reactions (compiled following Sadeghi, *Indian J. Phys.*, 2025):
 
-| Reaction Channel | Target ($Z, N$) | Projectile | Compound Nucleus | $Q$-Value (MeV) | Exp $S(0)$ (keV$\cdot$b) | Theoretical $S(0)$ | $S'(0)$ (keV$^{-1}$) |
+| Reaction Channel | Target ($Z, N$) | Projectile | Compound | $Q$-Value (MeV) | Experimental $S(0)$ (keV$\cdot$b) | Theoretical $S(0)$ | $S'(0)$ (keV$^{-1}$) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **$^{7}\text{Be}(p, \gamma)^{8}\text{B}$** | $^{7}\text{Be}$ ($Z=4, N=3$) | $p$ | $^{8}\text{B}$ ($Z=5, A=8$) | $0.137$ | **$20.80 \pm 0.70$** | $20.90$ | $-1.80 \times 10^{-3}$ |
-| **$^{3}\text{He}(\alpha, \gamma)^{7}\text{Be}$** | $^{3}\text{He}$ ($Z=2, N=1$) | $\alpha$ | $^{7}\text{Be}$ ($Z=4, A=7$) | $1.586$ | **$0.56 \pm 0.02$** | $0.56$ | $-3.20 \times 10^{-4}$ |
-| **$^{3}\text{H}(\alpha, \gamma)^{7}\text{Li}$** | $^{3}\text{H}$ ($Z=1, N=2$) | $\alpha$ | $^{7}\text{Li}$ ($Z=3, A=7$) | $2.467$ | **$0.56 \pm 0.02$** | $0.56$ | $-3.10 \times 10^{-4}$ |
-| **$^{7}\text{Li}(p, \gamma)^{8}\text{Be}$** | $^{7}\text{Li}$ ($Z=3, N=4$) | $p$ | $^{8}\text{Be}$ ($Z=4, A=8$) | $17.255$ | **$0.50 \pm 0.05$** | $0.50$ | $-4.50 \times 10^{-4}$ |
-| **$^{15}\text{N}(p, \gamma)^{16}\text{O}$** | $^{15}\text{N}$ ($Z=7, N=8$) | $p$ | $^{16}\text{O}$ ($Z=8, A=16$) | $12.127$ | **$36.00 \pm 1.50$** | $37.55$ | $-2.50 \times 10^{-3}$ |
-| **$^{12}\text{C}(p, \gamma)^{13}\text{N}$** | $^{12}\text{C}$ ($Z=6, N=6$) | $p$ | $^{13}\text{N}$ ($Z=7, A=13$) | $1.944$ | **$1.67 \pm 0.02$** | $1.67$ | $-1.10 \times 10^{-3}$ |
-| **$^{14}\text{N}(p, \gamma)^{15}\text{O}$** | $^{14}\text{N}$ ($Z=7, N=7$) | $p$ | $^{15}\text{O}$ ($Z=8, A=15$) | $7.297$ | **$1.66 \pm 0.02$** | $1.66$ | $-1.12 \times 10^{-3}$ |
-| **$^{16}\text{O}(p, \gamma)^{17}\text{F}$** | $^{16}\text{O}$ ($Z=8, N=8$) | $p$ | $^{17}\text{F}$ ($Z=9, A=17$) | $0.600$ | **$0.65 \pm 0.02$** | $0.65$ | $-8.50 \times 10^{-4}$ |
-| **$^{20}\text{Ne}(p, \gamma)^{21}\text{Na}$** | $^{20}\text{Ne}$ ($Z=10, N=10$) | $p$ | $^{21}\text{Na}$ ($Z=11, A=21$) | $2.431$ | **$0.45 \pm 0.02$** | $0.45$ | $-7.20 \times 10^{-4}$ |
-| **$^{24}\text{Mg}(p, \gamma)^{25}\text{Al}$** | $^{24}\text{Mg}$ ($Z=12, N=12$) | $p$ | $^{25}\text{Al}$ ($Z=13, A=25$) | $2.271$ | **$0.35 \pm 0.02$** | $0.35$ | $-6.10 \times 10^{-4}$ |
-| **$^{28}\text{Si}(p, \gamma)^{29}\text{P}$** | $^{28}\text{Si}$ ($Z=14, N=14$) | $p$ | $^{29}\text{P}$ ($Z=15, A=29$) | $2.748$ | **$0.25 \pm 0.02$** | $0.25$ | $-5.20 \times 10^{-4}$ |
+| **$^{7}\text{Be}(p, \gamma)^{8}\text{B}$** | $^{7}\text{Be}$ ($Z=4, N=3$) | $p$ | $^{8}\text{B}$ | $0.137$ | **$20.80 \pm 0.70$** | $20.90$ | $-1.80 \times 10^{-3}$ |
+| **$^{3}\text{He}(\alpha, \gamma)^{7}\text{Be}$** | $^{3}\text{He}$ ($Z=2, N=1$) | $\alpha$ | $^{7}\text{Be}$ | $1.586$ | **$0.56 \pm 0.02$** | $0.56$ | $-3.20 \times 10^{-4}$ |
+| **$^{3}\text{H}(\alpha, \gamma)^{7}\text{Li}$** | $^{3}\text{H}$ ($Z=1, N=2$) | $\alpha$ | $^{7}\text{Li}$ | $2.467$ | **$0.56 \pm 0.02$** | $0.56$ | $-3.10 \times 10^{-4}$ |
+| **$^{7}\text{Li}(p, \gamma)^{8}\text{Be}$** | $^{7}\text{Li}$ ($Z=3, N=4$) | $p$ | $^{8}\text{Be}$ | $17.255$ | **$0.50 \pm 0.05$** | $0.50$ | $-4.50 \times 10^{-4}$ |
+| **$^{15}\text{N}(p, \gamma)^{16}\text{O}$** | $^{15}\text{N}$ ($Z=7, N=8$) | $p$ | $^{16}\text{O}$ | $12.127$ | **$36.00 \pm 1.50$** | $37.55$ | $-2.50 \times 10^{-3}$ |
+| **$^{12}\text{C}(p, \gamma)^{13}\text{N}$** | $^{12}\text{C}$ ($Z=6, N=6$) | $p$ | $^{13}\text{N}$ | $1.944$ | **$1.67 \pm 0.02$** | $1.67$ | $-1.10 \times 10^{-3}$ |
+| **$^{14}\text{N}(p, \gamma)^{15}\text{O}$** | $^{14}\text{N}$ ($Z=7, N=7$) | $p$ | $^{15}\text{O}$ | $7.297$ | **$1.66 \pm 0.02$** | $1.66$ | $-1.12 \times 10^{-3}$ |
+| **$^{16}\text{O}(p, \gamma)^{17}\text{F}$** | $^{16}\text{O}$ ($Z=8, N=8$) | $p$ | $^{17}\text{F}$ | $0.600$ | **$0.65 \pm 0.02$** | $0.65$ | $-8.50 \times 10^{-4}$ |
+| **$^{20}\text{Ne}(p, \gamma)^{21}\text{Na}$** | $^{20}\text{Ne}$ ($Z=10, N=10$) | $p$ | $^{21}\text{Na}$ | $2.431$ | **$0.45 \pm 0.02$** | $0.45$ | $-7.20 \times 10^{-4}$ |
+| **$^{24}\text{Mg}(p, \gamma)^{25}\text{Al}$** | $^{24}\text{Mg}$ ($Z=12, N=12$) | $p$ | $^{25}\text{Al}$ | $2.271$ | **$0.35 \pm 0.02$** | $0.35$ | $-6.10 \times 10^{-4}$ |
+| **$^{28}\text{Si}(p, \gamma)^{29}\text{P}$** | $^{28}\text{Si}$ ($Z=14, N=14$) | $p$ | $^{29}\text{P}$ | $2.748$ | **$0.25 \pm 0.02$** | $0.25$ | $-5.20 \times 10^{-4}$ |
 
 ---
 
-## 📈 Model Architecture & Empirical Validation
+## Validation & Model Comparison
 
 ![Astrophysical S-Factor Predictions Plot](ML_S_Factor_Predictions_Publication.png)
 
-### Machine Learning Surrogates Evaluated:
-1. **Physics-Informed Neural Network (PINN):** Incorporates Coulomb penetrability gradients directly into the loss function $\mathcal{L} = \mathcal{L}_{\text{MSE}} + \lambda_{\text{phys}} \|\nabla_E S(E) - S'(0)\|^2$.
-2. **Gaussian Process Regression (GPR):** Uses a composite Matérn-5/2 kernel with automatic relevance determination (ARD) to produce rigorous, Bayesian $95\%$ credible intervals for $S(0)$.
-3. **Random Forest & Gradient Boosted Regressors:** Provide non-parametric baselines for feature importance across nuclear asymmetry $\alpha = (N - Z)/A$ and Coulomb barrier height $V_C = \frac{1.44 Z_1 Z_2}{R_0 (A_1^{1/3} + A_2^{1/3})}\text{ MeV}$.
+*Figure: Experimental $S(0)$ data points (with error bars) compared against polynomial regression, cubic splines, and Gaussian process uncertainty bounds across compound atomic mass $A$.*
 
-### Benchmark Metrics
+### Performance Metrics
 
-| Model Architecture | $R^2$ Score | RMSE (keV$\cdot$b) | MAE (keV$\cdot$b) | Gamow-Window Consistency |
+| Model Architecture | $R^2$ Score | RMSE (keV$\cdot$b) | MAE (keV$\cdot$b) | Notes on Extrapolation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Gaussian Process (Matérn 5/2)** | **0.992** | **0.42** | **0.18** | Full Uncertainty Envelope |
-| **Physics-Informed NN (PINN)** | **0.989** | **0.48** | **0.21** | Monotonic Asymptote Preserved |
-| Random Forest Ensemble | 0.964 | 0.89 | 0.44 | Step-discontinuities at boundaries |
-| Unconstrained MLP Baseline | 0.941 | 1.15 | 0.62 | Prone to unphysical divergence as $E \to 0$ |
+| **Gaussian Process (Matérn 5/2)** | **0.992** | **0.42** | **0.18** | Produces calibrated $95\%$ Bayesian credible intervals |
+| **Physics-Informed NN (PINN)** | **0.989** | **0.48** | **0.21** | Enforces $dS/dE$ sign and asymptotic limits |
+| Random Forest Baseline | 0.964 | 0.89 | 0.44 | Piecewise constant behavior near domain edges |
+| Unconstrained MLP | 0.941 | 1.15 | 0.62 | Prone to unphysical divergence in the $E \to 0$ tail |
 
 ---
 
-## 💻 Code Reproduction & Usage
+## Implementation Notes
 
-### 1. Environment Setup
+1. **Why standard regression fails on raw $\sigma(E)$:** The factor $\frac{1}{E} \exp(-2\pi\eta)$ varies over 15+ orders of magnitude between $10\text{ keV}$ and $3\text{ MeV}$. Training unconstrained networks directly on $\sigma(E)$ results in catastrophic gradient variance dominated entirely by the highest-energy data points. Mapping into the $S$-factor domain standardizes the target range to $\mathcal{O}(10^{-2}\text{--}10^1)\text{ keV}\cdot\text{b}$.
+2. **Handling sub-threshold resonances:** In reactions such as $^{15}\text{N}(p, \gamma)^{16}\text{O}$, interference between broad sub-threshold states and narrow resonances requires composite kernels in Gaussian Process Regression to prevent over-smoothing.
+
+---
+
+## Setup & Reproduction
+
 ```bash
 git clone https://github.com/jamshaidal/astrophysical-sfactor-macs-ml.git
 cd astrophysical-sfactor-macs-ml
 pip install -r requirements.txt
-```
 
-### 2. Generate Master Unified Dataset
-```bash
-python generate_massive_ml_sfactor_dataset.py
-```
-*Outputs: `ML_S_FACTOR_EXPANDED_RESEARCH_DATASET.csv` containing full kinematics, isotope properties, and $S$-factor values.*
+# Run full reproducibility verification suite
+python verify_all_results.py
 
-### 3. Evaluate ML Models & Generate Publication Figures
-```bash
+# Re-generate publication plots
 python plot_ml_sfactor_results.py
 ```
 
 ---
 
-## 📂 Repository Contents
+## Files in this Repository
 
-```
-.
-├── generate_massive_ml_sfactor_dataset.py    # Master dataset generator & physics feature extractor
-├── plot_ml_sfactor_results.py                # Model training, validation & publication figure renderer
-├── ML_S_FACTOR_EXPANDED_RESEARCH_DATASET.csv # Master tidy database (17 reaction channels)
-├── ML_S_FACTOR_CLEAN_DATASET.csv             # Cleaned experimental training matrix
-├── ML_S_Factor_Predictions_Publication.png   # Publication-ready validation plot
-└── requirements.txt                          # Scientific dependencies (NumPy, SciPy, Pandas, Scikit-Learn)
-```
+* `generate_massive_ml_sfactor_dataset.py`: Script constructing the unified kinematics and reaction matrix.
+* `plot_ml_sfactor_results.py`: Evaluation and 600 DPI publication plotting script.
+* `verify_all_results.py`: Automated test suite verifying data integrity and mathematical formulations.
+* `ML_S_FACTOR_EXPANDED_RESEARCH_DATASET.csv`: Master tidy research matrix containing all 17 reaction channels.
+* `ML_S_FACTOR_CLEAN_DATASET.csv`: Curated experimental training subset.
+* `ML_S_Factor_Predictions_Publication.png`: Publication validation plot.
+* `LICENSE`: MIT License.
 
 ---
 
-## 📜 Scientific Citation & Inquiries
+## Inquiries
 
 **Muhammad Jamshaid Ali**  
-Computational Physics & Scientific Machine Learning Researcher  
+Computational Physics & Scientific ML Researcher  
 Email: [jamshaid8081@gmail.com](mailto:jamshaid8081@gmail.com)  
-LinkedIn: [linkedin.com/in/muhammad-jamshaid-ali-1687082a0](https://www.linkedin.com/in/muhammad-jamshaid-ali-1687082a0/)  
-GitHub: [@jamshaidal](https://github.com/jamshaidal)
+LinkedIn: [linkedin.com/in/muhammad-jamshaid-ali-1687082a0](https://www.linkedin.com/in/muhammad-jamshaid-ali-1687082a0/)
