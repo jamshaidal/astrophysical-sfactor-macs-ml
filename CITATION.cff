@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this benchmark dataset, surrogate architecture, or MACS integration pipeline in your research, please cite it as below."
+title: "Physics-Constrained Neural and Gaussian Process Surrogates for Astrophysical S-Factor and MACS Calculations"
+authors:
+  - family-names: "Ali"
+    given-names: "Muhammad Jamshaid"
+version: 1.0.0
+date-released: 2026-03-01
+url: "https://github.com/jamshaidal/astrophysical-sfactor-macs-ml"
+repository-code: "https://github.com/jamshaidal/astrophysical-sfactor-macs-ml"
+license: "MIT"
+abstract: "Physics-constrained machine learning frameworks for astrophysical S-factor zero-energy extrapolation S(0) and Maxwellian-averaged cross-section (MACS) calculations across 17 charged-particle radiative capture reactions."
+keywords:
+  - "scientific machine learning"
+  - "sciml"
+  - "nuclear astrophysics"
+  - "astrophysical s-factor"
+  - "gaussian process regression"
+  - "macs"
+  - "gamow window"

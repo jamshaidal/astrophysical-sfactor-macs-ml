@@ -1,6 +1,7 @@
 # Astrophysical S-Factor & MACS Modeling with Scientific Machine Learning
 
 [![Technical Report](https://img.shields.io/badge/Preprint-Technical%20Report%20(PDF)-red?style=flat&logo=adobe-acrobat-reader&logoColor=white)](technical_report.pdf)
+[![CI Verification](https://github.com/jamshaidal/astrophysical-sfactor-macs-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/jamshaidal/astrophysical-sfactor-macs-ml/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -107,6 +108,22 @@ python plot_ml_sfactor_results.py
 * `ML_S_FACTOR_CLEAN_DATASET.csv`: Curated experimental training subset.
 * `ML_S_Factor_Predictions_Publication.png`: Publication validation plot.
 * `LICENSE`: MIT License.
+
+---
+
+## Citation
+
+If you utilize this benchmark codebase, models, or datasets in your research, please cite:
+
+```bibtex
+@software{ali2026astrophysical_sfactor,
+  author       = {Ali, Muhammad Jamshaid},
+  title        = {Physics-Constrained Neural and Gaussian Process Surrogates for Astrophysical S-Factor and MACS Calculations},
+  year         = {2026},
+  url          = {https://github.com/jamshaidal/astrophysical-sfactor-macs-ml}
+}
+```
+You can also view the machine-readable [`CITATION.cff`](CITATION.cff) file or click **"Cite this repository"** in the GitHub sidebar.
 
 ---
 
