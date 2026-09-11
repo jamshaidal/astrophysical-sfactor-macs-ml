@@ -1,6 +1,7 @@
 # Astrophysical S-Factor & MACS Modeling with Scientific Machine Learning
 
 [![Technical Report](https://img.shields.io/badge/Preprint-Technical%20Report%20(PDF)-red?style=flat&logo=adobe-acrobat-reader&logoColor=white)](technical_report.pdf)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jamshaidal/astrophysical-sfactor-macs-ml/blob/main/notebooks/reproduce_sfactor_benchmarks.ipynb)
 [![CI Verification](https://github.com/jamshaidal/astrophysical-sfactor-macs-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/jamshaidal/astrophysical-sfactor-macs-ml/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
